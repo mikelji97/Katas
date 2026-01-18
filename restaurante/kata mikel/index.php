@@ -1,6 +1,27 @@
 <?php
 
-class mesa{
+/*Un bar de copas tiene mesas para los clientes:
+Cada mesa tiene:
+
+Un número identificador
+
+Número de sillas
+
+Un indicador de si ya está reservada o no
+
+Imagínate que eres un/a cliente/a que quiere hacer una reserva en este bar. Para hacerlo, tendremos que indicar:
+
+Nombre de la reserva
+
+Cantidad de personas
+
+Crea un programa que represente toda esta información y las lógicas propuestas.
+
+*/
+
+
+
+class Mesa{
     private int $nombre;
     private int $numSillas;
     private bool $reservada;
@@ -15,7 +36,7 @@ class mesa{
         return $this->nombre;
     }
     public function getNumSillas(): string {
-        return $this->nombre;
+        return $this->numSillas;
     }
 
     public function esReservada(): bool {
@@ -50,7 +71,7 @@ class mesa{
         }
     function mostrarMesaDisponible($mesas){
         if (empty($mesasDisponibles)){
-            echo "No existe ninguna mesa disponible":
+            echo "No existe ninguna mesa disponible";
         }else{
             foreach($mesasDisponibles as $disponibles){
                 echo $disponibles;
