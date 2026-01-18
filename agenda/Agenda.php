@@ -15,9 +15,10 @@ class Agenda
 
 
 
-    public function listarContactos(): array {
-    return $this->contactos;
-}
+    public function listarContactos(): array
+    {
+        return $this->contactos;
+    }
 
     public function añadirContacto(Contacto $nuevoContacto)
     {
@@ -30,8 +31,15 @@ class Agenda
         $this->contactos[] = $nuevoContacto;
         return "El contacto se ha registrado correctamente";
     }
-    public function buscarContacto() {}
+    public function buscarContacto(int $telefono): ?Contacto
+    {
+        foreach ($this->contactos as $contacto) {
+            if ($contacto->getTelefono() == $telefono) {
+                return $contacto;
+            }
+        }
+        return null;
+    }
 
     public function eliminarContacto() {}
-
 }
