@@ -8,6 +8,7 @@ Debemos poder:
 Añadir, eliminar buscar y listar contactos en la agenda.
 Exportar información de la agenda en un archivo.*/
 require_once 'Contacto.php';
+
 class Agenda
 {
 
@@ -49,5 +50,29 @@ class Agenda
             }
         }
         return "No se encontró ningún contacto con ese teléfono";
+    }
+    public function exportarAgenda(): string
+    {
+        $ruta = __DIR__ . "/agenda_export.json";  
+
+        $lista = [];
+
+        foreach ($this->contactos as $contacto) {
+            $lista[] = [
+                'nombre' => $contacto->getNombre(),
+                'apellido1' => $contacto->getApellido1(),
+                'apellido2' => $contacto->getApellido2(),
+                'telefono' => $contacto->getTelefono(),
+                'email' => $contacto->getEmail()
+            ];
+        }
+
+        $json = json_encode($lista, JSON_PRETTY_PRINT);
+
+        if (file_put_contents($ruta, $json) !== false) {
+            return "Agenda exportada correctamente";
+        }
+
+        return "No se ha podido exportar la agenda";
     }
 }

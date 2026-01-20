@@ -1,0 +1,16 @@
+[
+    {
+        "nombre": "Mikel",
+        "apellido1": "Jimenez",
+        "apellido2": "Álvarez",
+        "telefono": 616397225,
+        "email": "mikel.falcesino@gmail.com"
+    },
+    {
+        "nombre": "Laura",
+        "apellido1": "Del Rio",
+        "apellido2": "Manzano",
+        "telefono": 645887441,
+        "email": "laura.delrio@gmail.com"
+    }
+]
