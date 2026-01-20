@@ -40,6 +40,14 @@ class Agenda
         }
         return null;
     }
-
-    public function eliminarContacto() {}
+    public function eliminarContacto(int $telefono): string
+    {
+        foreach ($this->contactos as $indice => $contacto) {
+            if ($contacto->getTelefono() == $telefono) {
+                unset($this->contactos[$indice]);
+                return "El contacto se ha eliminado correctamente";
+            }
+        }
+        return "No se encontró ningún contacto con ese teléfono";
+    }
 }
