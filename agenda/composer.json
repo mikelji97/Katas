@@ -1,0 +1,19 @@
+{
+    "name": "mikel/agenda",
+    "description": "Agenda de contactos",
+    "type": "proyect",
+    "autoload": {
+        "psr-4": {
+            "Mikel\\Agenda\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "mikelji97",
+            "email": "mikel.falcesino@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^11.5"
+    }
+}
