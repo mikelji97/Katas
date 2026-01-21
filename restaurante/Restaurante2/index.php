@@ -22,10 +22,10 @@ Crea un programa que represente toda esta información y las lógicas propuestas
 require_once 'class/restaurante.php';
 
 $mesas = [
-    new Mesa("mesa1", 18, false),
-    new Mesa("mesa2", 5, false),
-    new Mesa("mesa3", 20, true),
-    new Mesa("mesa4", 4, true)
+    new Mesa("mesa1", 18),
+    new Mesa("mesa2", 5),
+    new Mesa("mesa3", 20),
+    new Mesa("mesa4", 4)
 ];
 
 $restaurante = new Restaurante($mesas);

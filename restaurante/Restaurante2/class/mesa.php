@@ -6,7 +6,7 @@ class Mesa
     private bool $reservada;
     private string $reservadaPor;
 
-    public function  __construct(string $nombre, int $numSillas, bool $reservada)
+    public function  __construct(string $nombre, int $numSillas)
     {
         $this->nombre = $nombre;
         $this->numSillas = $numSillas;
