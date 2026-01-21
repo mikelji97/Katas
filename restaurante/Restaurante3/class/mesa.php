@@ -23,7 +23,7 @@ class Mesa
         return $this->numSillas;
     }
     public function getReservadaPor(): string
-    {  
+    {
         return $this->reservadaPor;
     }
 
@@ -36,5 +36,10 @@ class Mesa
     {
         $this->reservada = true;
         $this->reservadaPor = $nombreCliente;
+    }
+    public function liberar(): void
+    {
+        $this->reservada = false;
+        $this->reservadaPor = "";
     }
 }
