@@ -12,7 +12,7 @@ class Restaurante {
 
     public function hacerReserva(Cliente $cliente): void {
         foreach ($this->mesas as $mesa) {
-            if ($mesa->esReservada() && $mesa->getReservadaPor() === $cliente->getNombre()) {
+            if ($mesa->estaReservada() && $mesa->getReservadaPor() === $cliente->getNombre()) {
                 echo "{$cliente->getNombre()} ya tiene una reserva en {$mesa->getNombre()}<br>";
                 return;
             }
@@ -21,7 +21,7 @@ class Restaurante {
         $mejorMesa = null;
 
         foreach ($this->mesas as $mesa) {
-            if (!$mesa->esReservada() && $cliente->getNumPersonas() <= $mesa->getNumSillas()) {
+            if (!$mesa->estaReservada() && $cliente->getNumPersonas() <= $mesa->getNumSillas()) {
                 if ($mejorMesa === null || $mesa->getNumSillas() < $mejorMesa->getNumSillas()) {
                     $mejorMesa = $mesa;
                 }
@@ -38,7 +38,7 @@ class Restaurante {
 
     public function llegadaCliente(Cliente $cliente): void {
         foreach ($this->mesas as $mesa) {
-            if ($mesa->esReservada() && $mesa->getReservadaPor() === $cliente->getNombre()) {
+            if ($mesa->estaReservada() && $mesa->getReservadaPor() === $cliente->getNombre()) {
                 echo "Bienvenido/a {$cliente->getNombre()}! Tu mesa es la {$mesa->getNombre()}<br>";
                 return;
             }
@@ -48,7 +48,7 @@ class Restaurante {
 
     public function cancelarReserva(Cliente $cliente): void {
         foreach ($this->mesas as $mesa) {
-            if ($mesa->esReservada() && $mesa->getReservadaPor() === $cliente->getNombre()) {
+            if ($mesa->estaReservada() && $mesa->getReservadaPor() === $cliente->getNombre()) {
                 $mesa->liberar();
                 echo "Reserva cancelada: {$mesa->getNombre()} de {$cliente->getNombre()}<br>";
                 return;
@@ -59,7 +59,7 @@ class Restaurante {
 
     public function mostrarEstadoRestaurante(): void {
         foreach ($this->mesas as $mesa) {
-            $estado = $mesa->esReservada() 
+            $estado = $mesa->estaReservada() 
                 ? "Reservada por {$mesa->getReservadaPor()}" 
                 : "Libre";
             echo "{$mesa->getNombre()} ({$mesa->getNumSillas()} sillas) - {$estado}<br>";
@@ -69,7 +69,7 @@ class Restaurante {
     public function buscarMesasDisponibles(): array {
         $mesasDisponibles = [];
         foreach ($this->mesas as $mesa) {
-            if (!$mesa->esReservada()) {
+            if (!$mesa->estaReservada()) {
                 $mesasDisponibles[] = $mesa;
             }
         }

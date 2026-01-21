@@ -51,3 +51,15 @@ echo "<br>";
 $restaurante->llegadaCliente($cliente1);
 $restaurante->llegadaCliente($cliente2);
 $restaurante->llegadaCliente(new Cliente("Pedro Sin Reserva", 2));
+
+echo "<br>";
+
+$restaurante->mostrarEstadoRestaurante();
+
+echo "<br>";
+
+$restaurante->cancelarReserva($cliente2);
+
+echo "<br>";
+
+$restaurante->mostrarEstadoRestaurante();
